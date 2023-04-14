@@ -51,13 +51,13 @@ int HashTable::search(int key) {
 	}
 
 	if (table[i] == EMPTY)
-		return (1 + cells) * -1;
+		return (cells + 1) * -1; // not found
 
 	return cells; // found
 }
 
-// vacant = 0
-// defunct = -1
+// EMPTY = ' '
+// DEFUNCT = '?'
 // occupied key
 int HashTable::remove(int key) {
 	int cells = search(key);
@@ -68,19 +68,14 @@ int HashTable::remove(int key) {
 	if (i >= N)
 		i %= N;
 
-	int right = i + 1;
-	if (right == N)
-		right = 0;
-
-	if (table[right] == EMPTY) {
+	if (table[(i + 1) % N] == EMPTY)
 		do {
 			table[i--] = EMPTY;
 			if (i == -1)
 				i = N - 1;
 		} while (table[i] == DEFUNCT);
-	} else {
+	else
 		table[i] = DEFUNCT;
-	}
 
 	count--;
 	return cells;
@@ -88,15 +83,13 @@ int HashTable::remove(int key) {
 
 
 void HashTable::print() {
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < N; i++)
 		cout << i << "\t";
-	}
 	cout << "\n";
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < N; i++)
 		if (table[i] == EMPTY || table[i] == DEFUNCT)
 			cout << "\t";
 		else
 			printf("%c\t", table[i]);
-	}
 	cout << "\n";
 }

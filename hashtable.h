@@ -1,9 +1,13 @@
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
+
 #include <iostream>
 
 #define _DEBUG
 #ifdef _DEBUG
-#define DEBUG(x) do { std::cout << x; } while (0)
-#define DEBUGN(x) do { std::cout << x << std::endl; } while (0)
+#define DEBUG(x) do { std::cerr << x; } while (0)
+#define DEBUGN(x) do { std::cerr << x << std::endl; } while (0)
 #else
 #define DEBUG(x)
 #define DEBUGN(x)
@@ -43,3 +47,5 @@ public:
     void print();
 
 };
+
+#endif // HASHTABLE_H
