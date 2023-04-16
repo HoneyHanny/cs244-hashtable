@@ -32,14 +32,14 @@ class HashTable {
 	//				[(ai+b) % p] % N
 	//
 	//
-	inline int compress(int code) { return ((59 * code + 17) % 509) % N; }
-
-	// Using the knowledge that a hash function is composed of two portions
-	inline int hashfn(int key) { return compress(hash_code(key)); }
+	inline int compress(char code) { return ((59 * code + 17) % 509) % N; }
 
 public:
+
     HashTable(int N);
 
+	// Using the knowledge that a hash function is composed of two portions
+	inline int hashfn(char key) { return compress(hash_code(key)); }
     int insert(char  key);
     int search(char  key);
     int remove(char  key);
