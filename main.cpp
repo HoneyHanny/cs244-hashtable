@@ -12,7 +12,7 @@ int main(void) {
 	HashTable *table = new HashTable(N);
 
 	char op;
-	int key;
+	char key;
 	do {
 		cout << "Operation: ";
 		cin >> op;

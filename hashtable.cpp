@@ -13,7 +13,7 @@ HashTable::HashTable(int N) {
 
 // if full or contains return -1
 // else return num of collision
-int HashTable::insert(int key) {
+int HashTable::insert(char key) {
 	if (count == N || search(key) >= 0) // search(key) >= 0 indicates table contains the key
 		return -1;
 	if (key == EMPTY || key == DEFUNCT)
@@ -37,7 +37,7 @@ int HashTable::insert(int key) {
 // count number of cells it traversed not including the one with the key
 // not empty = cells
 // empty =  -1
-int HashTable::search(int key) {
+int HashTable::search(char key) {
 	int index = hashfn(key);
 	int cells = 0;
 
@@ -59,7 +59,7 @@ int HashTable::search(int key) {
 // EMPTY = ' '
 // DEFUNCT = '?'
 // occupied key
-int HashTable::remove(int key) {
+int HashTable::remove(char key) {
 	int cells = search(key);
 	if (cells < 0)
 		return -1;

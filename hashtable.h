@@ -1,7 +1,6 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
-
 #include <iostream>
 
 #define _DEBUG
@@ -41,9 +40,9 @@ class HashTable {
 public:
     HashTable(int N);
 
-    int insert(int key);
-    int search(int key);
-    int remove(int key);
+    int insert(char  key);
+    int search(char  key);
+    int remove(char  key);
     void print();
 
 };
